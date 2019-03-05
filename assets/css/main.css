@@ -1,0 +1,32 @@
+/* 
+    Evite que la navbar qui est fixé en haut (position absolute) camoufle d'autres élements
+*/
+
+.container {
+    margin-top: 10%;
+}
+@media screen and (max-width: 1530px) {
+    .container {
+        margin-top: 15%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .container {
+        margin-top: 20%;
+    }
+}
+@media screen and (max-width: 750px) {
+    .container {
+        margin-top: 25%;
+    }
+}
+@media screen and (max-width: 595px) {
+    .container {
+        margin-top: 35%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .container {
+        margin-top: 50%;
+    }
+}
