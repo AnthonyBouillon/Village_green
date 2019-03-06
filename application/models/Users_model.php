@@ -3,13 +3,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Insert un utilisateur
- * Lis les informations de l'utilisateur
+ * User management
+ * 
+ * User part
  */
 class Users_model extends CI_Model {
 
     /**
-     * Enregistre un utilisateur
+     * Add a user to the database
+     *
      * @param type $values
      */
     public function create($values) {
@@ -17,7 +19,18 @@ class Users_model extends CI_Model {
     }
 
     /**
-     * Compte le nombre de fois où l'adresse email et le mot de passe de l'utilisateur se trouve dans la base de données (
+     * Read the user's information linked to his email
+     * (Sert à récupérer le mot de passe crypté de la base de données pour le comparé avec le mot de passe saisie)
+     * @param type $email
+     * @return type
+     */
+    public function read_by_email($email) {
+        return $this->db->get_where('client', array('email_client' => $email))->row();
+    }
+
+    /**
+     * Count the number of times the user's email and password are in the database
+     * (Is used for login)
      */
     public function read_by_login($email, $password) {
         $this->db->select('COUNT(*) as "num_rows"')
@@ -25,15 +38,6 @@ class Users_model extends CI_Model {
                 ->where(array('email_client' => $email, 'mot_de_passe' => $password));
 
         return $this->db->get()->row();
-    }
-
-    /**
-     * Lis les informations de l'utilisateur lié à sont email
-     * @param type $email
-     * @return type
-     */
-    public function read_by_email($email) {
-        return $this->db->get_where('client', array('email_client' => $email))->row();
     }
 
 }

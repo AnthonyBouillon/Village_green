@@ -26,13 +26,13 @@
                 echo '<td>' . $row->photo_produit . '</td>';
                 //echo '<td>' . $row->description_long_produit . '</td>';
                 echo '<td>' . $row->prix_ht_produit . '$</td>';
-                echo '<td>' . $row->tva_produit . '$</td>';
+                echo '<td>' . $row->tva_produit . '</td>';
                 echo '<td>' . number_format($price_ttc, 2) . '$</td>';
 
                 echo '<td>' . $row->nom_rubrique . '<br/> ' . $row->nom_sous_rubrique . '</td>';
                 ?>
             <td>
-                <a href="<?= site_url('products/read_by_id/' . $row->id_produit) ?>" class="btn btn-secondary">Voir plus</button>
+                <a href="<?= site_url('products/read_by_id/' . $row->id_produit) ?>" class="btn btn-secondary">Voir plus</a>
             </td>
             </tr>
             <?php

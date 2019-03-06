@@ -19,20 +19,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="<?= site_url('users/home') ?>">
+                        <a class="nav-link" href="<?= site_url('products/home') ?>">
                             Accueil
                         </a>
 
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="<?= site_url('products/read') ?>">
+                        <a class="nav-link" href="<?= site_url('products/product') ?>">
                             Nos produits
                         </a>
 
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Panier</a>
+                        <a class="nav-link" href="<?= site_url('carts/cart') ?>">Panier</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -189,7 +189,7 @@
         </div>
         <?php $this->load->view($page); ?>
         <footer class="jumbotron mt-5 mb-0 p-2 text-center">
-            <small class="text-center">© 2019 - Anthony Bouillon</small>
+            <small class="">© 2019 - Anthony Bouillon</small>
         </footer>
         <script src="<?= base_url('assets/bootstrap/jquery.min.js') ?>"></script>
         <script src="<?= base_url('assets/bootstrap/bootstrap.min.js') ?>"></script>

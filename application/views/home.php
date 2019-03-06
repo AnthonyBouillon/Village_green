@@ -31,121 +31,31 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
+            <hr/>
+            <h1 class="text-center">Nos produits les plus récents</h1>
+            <hr/>
             <div class="row">
-
-                <div class="col-lg-4 col-md-6 mb-4">
+                <?php foreach($recent_product as $row){ 
+                $price_ttc = $row->prix_ht_produit * $row->tva_produit / 100 + $row->prix_ht_produit;
+                ?>
+                     <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
                         <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#">Item One</a>
+                                <?= $row->description_court_produit ?>
 
                             </h4>
-                            <p>FILM FANTASY</p>
-                            <h5>$24.99 ttc</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                            <p><?= $row->nom_rubrique . ' ' . $row->nom_sous_rubrique ?></p>
+                            <h5><?= number_format($price_ttc, 2) ?>$ ttc</h5>
+                            <p class="card-text"><?= $row->description_long_produit ?></p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            <button class="btn btn-secondary" style="float:right">Acheter</button>
+                            <a href="<?= site_url('products/read_by_id/' . $row->id_produit) ?>" class="btn btn-secondary" style="float:right">Voir plus</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Two</a>
-
-                            </h4>
-                            <p>FILM FANTASY</p>
-                            <h5>$24.99 ttc</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            <button class="btn btn-secondary" style="float:right">Acheter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Three</a>
-
-                            </h4>
-                            <p>FILM FANTASY</p>
-                            <h5>$24.99 ttc</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            <button class="btn btn-secondary" style="float:right">Acheter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Four</a>
-
-                            </h4>
-                            <p>FILM FANTASY</p>
-                            <h5>$24.99 ttc</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            <button class="btn btn-secondary" style="float:right">Acheter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Five</a>
-
-                            </h4>
-                            <p>FILM FANTASY</p>
-                            <h5>$24.99 ttc</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            <button class="btn btn-secondary" style="float:right">Acheter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Six</a>                              
-                            </h4>
-                            <p>FILM FANTASY</p>
-                            <h5>$24.99 ttc</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            <button class="btn btn-secondary" style="float:right">Acheter</button>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
 
             </div>
             <!-- /.row -->

@@ -66,7 +66,7 @@ class Users extends CI_Controller {
 
                 $this->users_model->create($values);
                 // Après l'inscription l'utilisateur est redirigé vers la page d'accueil (A CORRIGER)
-                redirect('users/home', 'location');
+                redirect('products/home', 'location');
             }
 
 
@@ -84,16 +84,11 @@ class Users extends CI_Controller {
         }
     }
 
-    public function home() {
-        $values['title'] = 'Village_green';
-        $values['page'] = 'home';
-        $this->load->view('partials/template', $values);
-    }
 
-
-
+    /**
+     * Probleme de redirection si il se trompe
+     */
     public function login() {
-
         if ($this->input->post()) {
             $email = $this->input->post('email2');
             $password = $this->input->post('password2');
@@ -105,18 +100,24 @@ class Users extends CI_Controller {
 
         if (!empty($result) && $result->num_rows == "1") {
             $data = $this->users_model->read_by_email($email);
+            
+            $this->session->set_userdata('id', $data->id_client);
             $this->session->set_userdata('username', $data->prenom_client);
             $this->session->set_userdata('admin', $data->admin);
-            redirect('products/read', 'location');
+            redirect('products/product', 'location');
         } else {
+            // ...
             
         }
     }
-
+    /**
+     * Déconnexion, destruction des sessions et redirection vers la page d'accueil
+     */
     public function logout() {
+        $this->session->unset_userdata('id');
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('admin');
-        redirect('users/home', 'location');
+        redirect('products/home', 'location');
     }
 
 }
