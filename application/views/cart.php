@@ -1,34 +1,42 @@
-
-
-<script src="https://use.fontawesome.com/c560c025cf.js"></script>
 <div class="container">
-    <div class="card shopping-cart">
+    <div class="card">
+        <!-- Header cart -->
         <div class="card-header bg-dark text-light">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            Mon panier
-
-            <div class="clearfix"></div>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+            <span>Mon panier</span>
         </div>
+        
         <div class="card-body">
             <?php
             foreach ($read_cart as $row) {
+                // price to VAT for a product 
                 $price_ttc = $row->prix_ht_produit * $row->tva_produit / 100 + $row->prix_ht_produit;
-                ?>
+            ?>
                 <!-- PRODUCT -->
                 <div class="row">
+                    
+                    <!-- BLOCK IMG -->
                     <div class="col-12 col-sm-12 col-md-2 text-center">
                         <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
                     </div>
+                    
+                    <!-- BLOCK TEXT -->
                     <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
                         <h4 class="product-name"><strong><?= $row->description_court_produit ?></strong></h4>
                         <h4>
                             <small><?= $row->description_long_produit ?></small>
                         </h4>
                     </div>
+                    
+                    
                     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                        
+                        <!-- BLOCK PRICE -->
                         <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
                             <h6><strong><?= number_format($price_ttc * $row->quantity, 2) ?>$ <span class="text-muted">x</span></strong></h6>
                         </div>
+                        
+                        <!-- BLOCK QUANTITY -->
                         <div class="col-4 col-sm-4 col-md-4">
                             <div class="quantity">
                                 <form method="POST" action="<?= site_url('carts/update_cart/') ?>">
@@ -38,25 +46,24 @@
                                 </form>
                             </div>
                         </div>
+                        
+                        <!-- BLOCK DELETE -->
                         <div class="col-2 col-sm-2 col-md-2 text-right">
-                            <form method="POST" action="<?= site_url('carts/delete_cart/' . $row->id_produit) ?>">
-                                <input type="hidden" name="id_produit" value="<?= $row->id_produit ?>">
-                                <button type="submit" name="delete_cart" class="btn btn-outline-danger btn-xs">
+                            <form method="POST" action="<?= site_url('carts/delete_cart/') ?>" class="delete_cart">
+                                <input type="hidden" name="id_product" value="<?= $row->id_produit ?>">
+                                <button type="submit" name="delete_cart"  class="btn btn-outline-danger btn-xs btn_delete_cart" onclick="return confirm('Etes vous sur de vouloir supprimer cette article ?')">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </form>
-
                         </div>
+                        
                     </div>
                 </div>
                 <hr>
             <?php } ?>
-
-
-
-
-
         </div>
+        
+        <!-- BLOCK FOOTER + VAT PRICE -->
         <div class="card-footer">
 
             <div class="pull-right" style="margin: 10px">
@@ -66,75 +73,19 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
+
 <style>
+    html{ height:100%; }
+body{ min-height:100%;  position:relative; }
 
+body::after{ content:''; display:block; height:100px; }
 
-    .quantity {
-        float: left;
-        margin-right: 15px;
-        background-color: #eee;
-        position: relative;
-        width: 80px;
-        overflow: hidden
-    }
-
-    .quantity input {
-        margin: 0;
-        text-align: center;
-        width: 15px;
-        height: 15px;
-        padding: 0;
-        float: right;
-        color: #000;
-        font-size: 20px;
-        border: 0;
-        outline: 0;
-        background-color: #F6F6F6
-    }
-
-    .quantity input.qty {
-        position: relative;
-        border: 0;
-        width: 100%;
-        height: 40px;
-        padding: 10px 25px 10px 10px;
-        text-align: center;
-        font-weight: 400;
-        font-size: 15px;
-        border-radius: 0;
-        background-clip: padding-box
-    }
-
-    .quantity .minus, .quantity .plus {
-        line-height: 0;
-        background-clip: padding-box;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        -webkit-background-size: 6px 30px;
-        -moz-background-size: 6px 30px;
-        color: #bbb;
-        font-size: 20px;
-        position: absolute;
-        height: 50%;
-        border: 0;
-        right: 0;
-        padding: 0;
-        width: 25px;
-        z-index: 3
-    }
-
-    .quantity .minus:hover, .quantity .plus:hover {
-        background-color: #dad8da
-    }
-
-    .quantity .minus {
-        bottom: 0
-    }
-    .shopping-cart {
-        margin-top: 20px;
-    }
-
+footer{ 
+  position:absolute; 
+  bottom:0; 
+  width:100%; 
+}
 </style>

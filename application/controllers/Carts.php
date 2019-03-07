@@ -29,8 +29,8 @@ class Carts extends CI_Controller {
      * Deletes a product associated with its identifier
      * @param type $id_cart
      */
-    public function delete_cart($id_cart) {
-        $this->carts_model->delete($id_cart);
+    public function delete_cart() {
+        $this->carts_model->delete($this->input->post('id_product'));
         redirect('carts/cart', 'location');
     }
 

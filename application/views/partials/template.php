@@ -3,6 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.13.5/dist/bootstrap-table.min.css">
         <link rel="stylesheet" href="<?= base_url('assets/bootstrap/bootstrap.css') ?>">
@@ -10,7 +14,7 @@
         <title><?= !empty($title) ? $title : 'Titre indéfini' ?></title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"><img src="<?= base_url('assets/image/logo.png') ?>" class="img-fluid" width="200" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -49,10 +53,10 @@
                                     <a class="dropdown-item" href="<?= site_url('users/logout') ?>">Déconnexion</a>
                                 </div>
                             </li>
-                   
-        
+
+
                         <?php } else if (!empty($this->session->username)) { ?>
-                               <li class="nav-item dropdown pr-5">
+                            <li class="nav-item dropdown pr-5">
 
                                 <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" id="navbarDropdown"><b>Espace Client</b></a>
 
@@ -63,7 +67,7 @@
                                     <a class="dropdown-item" href="<?= site_url('users/logout') ?>">Déconnexion</a>
                                 </div>
                             </li>
-               
+
                         <?php } else { ?>
                             <li class="nav-item">
 
@@ -89,25 +93,25 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    
+
                     <form method="POST" action="<?= site_url('users/create') ?>" id="form_register">
-                        
+
                         <div class="modal-body">
                             <div style="color:red">
-                            <?php echo validation_errors(); ?>
-                                
+                                <?php echo validation_errors(); ?>
+
                                 <small id="error_name"></small>
-                                
+
                                 <small id="error_firstname"></small>
-                                
+
                                 <small id="error_phone"></small>
                                 <small id="format_phone"></small>
-                                
+
                                 <small id="error_email"></small>
                                 <small id="format_email"></small>
-                                
+
                                 <small id="error_address"></small>
-                                
+
                                 <small id="similar_password"></small>
                             </div>
                             <hr/>
@@ -192,10 +196,12 @@
             <small class="">© 2019 - Anthony Bouillon</small>
         </footer>
         <script src="<?= base_url('assets/bootstrap/jquery.min.js') ?>"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="<?= base_url('assets/bootstrap/bootstrap.min.js') ?>"></script>
         <script src="https://unpkg.com/bootstrap-table@1.13.5/dist/bootstrap-table.min.js"></script>
+        <script src="https://use.fontawesome.com/c560c025cf.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="<?= base_url('assets/js/form.js') ?>"></script>
-        
+
     </body>
 </html>
