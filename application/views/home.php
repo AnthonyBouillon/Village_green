@@ -39,7 +39,6 @@
             <div class="row">
                 <?php
                 foreach ($recent_product as $row) {
-                    $price_ttc = $row->prix_ht_produit * $row->tva_produit / 100 + $row->prix_ht_produit;
                 ?>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
@@ -49,7 +48,7 @@
                                 <h4 class="card-title"><?= $row->description_court_produit ?></h4>
                                 <p><?= $row->nom_rubrique . ' ' . $row->nom_sous_rubrique ?></p>
                                 
-                                <h5><?= number_format($price_ttc, 2) ?>$ ttc</h5>
+                                <h5><?= number_format($row->prix_ht_produit, 2) ?>$ hors taxe</h5>
                                 <p class="card-text"><?= $row->description_long_produit ?></p>
                                 
                             </div>

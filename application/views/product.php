@@ -1,6 +1,3 @@
-<?php
-$price_ati = $product->prix_ht_produit * $product->tva_produit / 100 + $product->prix_ht_produit;
-?>
 <div class="container">
     <div class="row">
         <div class="col-lg-6 ">
@@ -12,7 +9,7 @@ $price_ati = $product->prix_ht_produit * $product->tva_produit / 100 + $product-
 
                     </h4>
                     <p><?= $product->nom_rubrique . ' | ' . $product->nom_sous_rubrique ?></p>
-                    <h5><?= number_format($price_ati, 2) ?>$</h5>
+                    <h5><?= number_format($product->prix_ht_produit, 2) ?>$ hors taxe</h5>
                     <p class="card-text"><?= $product->description_long_produit ?></p>
                 </div>
                 <div class="card-footer">

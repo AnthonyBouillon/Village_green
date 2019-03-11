@@ -6,6 +6,7 @@
     <table data-toggle="table">
         <thead>
             <tr>
+                <th>Reference fournisseur</th>
                 <th>Nom</th>
                 <th>Photo</th>
                 <!--<th>Description</th>-->
@@ -22,7 +23,8 @@
             foreach ($list as $row) {
                 $price_ttc = $row->prix_ht_produit * $row->tva_produit / 100 + $row->prix_ht_produit;
 
-                echo '<tr><td>' . $row->description_court_produit . '</td>';
+                echo '<tr><td>' . $row->reference_fournisseur . '</td>';
+                echo '<td>' . $row->description_court_produit . '</td>';
                 echo '<td>' . $row->photo_produit . '</td>';
                 //echo '<td>' . $row->description_long_produit . '</td>';
                 echo '<td>' . $row->prix_ht_produit . '$</td>';

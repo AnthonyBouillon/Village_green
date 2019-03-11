@@ -60,6 +60,7 @@ class Users extends CI_Controller {
                     'adresse_client' => $this->input->post('address'),
                     'adresse_facturation_client' => $this->input->post('address'),
                     'adresse_livraison_client' => $this->input->post('address'),
+                    'coeff_client' => 5,
                     'statut_client' => 'Particulier',
                     'id_commercial' => 3
                 );
@@ -90,8 +91,8 @@ class Users extends CI_Controller {
      */
     public function login() {
         if ($this->input->post()) {
-            $email = $this->input->post('email2');
-            $password = $this->input->post('password2');
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
             $data = $this->users_model->read_by_email($email);
             if (password_verify($password, $data->mot_de_passe)) {
                 $result = $this->users_model->read_by_login($email, $data->mot_de_passe);
