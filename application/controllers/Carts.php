@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Carts extends CI_Controller {
 
-    
     /**
      * Display the shopping cart with all items
      */
@@ -17,6 +16,7 @@ class Carts extends CI_Controller {
         $values['page'] = 'cart';
         $this->load->view('partials/template', $values);
     }
+
     /**
      * Update the quantity of the product associated with its identifiant
      */
@@ -33,5 +33,7 @@ class Carts extends CI_Controller {
         $this->carts_model->delete($this->input->post('id_product'));
         redirect('carts/cart', 'location');
     }
+
+
 
 }

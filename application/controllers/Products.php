@@ -13,24 +13,28 @@ class Products extends CI_Controller {
         $values['page'] = 'home';
         $this->load->view('partials/template', $values);
     }
+
     /**
      * Affiche tous les produits dans la liste
      */
-    public function product () {
-        $values['list'] = $this->products_model->read();
+    public function product() {
+        if ($this->input->post()) {
+            $values['list'] = $this->products_model->search_product($this->input->post('search'));
+        } else {
+            $values['list'] = $this->products_model->read();
+        }
+
         $values['title'] = 'Tout nos produits';
         $values['page'] = 'list';
         $this->load->view('partials/template', $values);
     }
-
-    
 
     /**
      * FAIRE DES VERIFICATIONS
      */
     public function read_by_id($id_product = !null) {
         $values['product'] = $this->products_model->read_by_id($id_product);
-        
+
         if ($values['product'] != null) {
 
             if ($this->input->post()) {

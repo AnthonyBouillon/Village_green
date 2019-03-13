@@ -190,7 +190,11 @@ $(document).ready(function () {
 if($(window).width() < '750'){
     $("nav").addClass("fixed-top");
 }
-
+   $('#form_paypal').hide();
+   $('#btn_command').click(function(){
+       $('#form_paypal').show();
+       $('#form_command').hide();
+   });
 
 });
 

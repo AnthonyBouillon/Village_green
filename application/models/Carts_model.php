@@ -26,6 +26,9 @@ class Carts_model extends CI_Model {
         }
     }
 
+    
+    
+
     /**
      * Display the list of products in the shopping cart linked to the user
      * @return type

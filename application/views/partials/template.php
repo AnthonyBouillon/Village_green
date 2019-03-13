@@ -14,7 +14,7 @@
         <title><?= !empty($title) ? $title : 'Titre indéfini' ?></title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-darky ">
             <a class="navbar-brand" href="#"><img src="<?= base_url('assets/image/logo.png') ?>" class="img-fluid" width="200" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,20 +23,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="<?= site_url('products/home') ?>">
+         
+                        <a class="nav-link btn m-1" href="<?= site_url('products/home') ?>">
                             Accueil
                         </a>
 
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="<?= site_url('products/product') ?>">
+                        <a class="nav-link btn m-1" href="<?= site_url('products/product') ?>">
                             Nos produits
                         </a>
 
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('carts/cart') ?>">Panier</a>
+                        <a class="nav-link btn m-1" href="<?= site_url('carts/cart') ?>">Panier</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -58,7 +59,7 @@
                         <?php } else if (!empty($this->session->username)) { ?>
                             <li class="nav-item dropdown pr-5">
 
-                                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" id="navbarDropdown"><b>Espace Client</b></a>
+                                <a class="nav-link dropdown-toggle btn  m-1" href="#"  data-toggle="dropdown" id="navbarDropdown"><b>Espace Client</b></a>
 
 
                                 <div class="dropdown-menu ">
@@ -71,10 +72,10 @@
                         <?php } else { ?>
                             <li class="nav-item">
 
-                                <a class="nav-link" href="#register"  data-toggle="modal" data-target="#exampleModalCenter">Inscription</a>
+                                <a class="nav-link btn  m-1" href="#register"  data-toggle="modal" data-target="#exampleModalCenter">Inscription</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter2">Connexion</a>
+                                <a class="nav-link btn  m-1" href="#" data-toggle="modal" data-target="#exampleModalCenter2">Connexion</a>
                             </li>
                         <?php } ?>
 
@@ -192,8 +193,14 @@
             </div>
         </div>
         <?php $this->load->view($page); ?>
-        <footer class="jumbotron mt-5 mb-0 p-2 text-center">
-            <small class="">© 2019 - Anthony Bouillon</small>
+        <footer class="jumbotron mt-5 mb-0 p-2 ">
+
+            <div class="text-center">
+                <small class="">© 2019 - Anthony Bouillon</small><br/>
+                <small><a href="">Mentions légales</a> | <a href="">Conditions Générales de Ventes</a> | <a href="">Politique de confidentialité</a> | <a href="">Politique des Cookies</a></small><br/>
+                 <small>Vous êtes un fournisseur ou un client professionnel et vous souhaitez travailler avec nous ? <a href="">Contactez-nous</a></small>
+            </div>
+           
         </footer>
         <script src="<?= base_url('assets/bootstrap/jquery.min.js') ?>"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
