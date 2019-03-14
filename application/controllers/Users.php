@@ -96,6 +96,7 @@ class Users extends CI_Controller {
             $data = $this->users_model->read_by_email($email);
             if (password_verify($password, $data->mot_de_passe)) {
                 $result = $this->users_model->read_by_login($email, $data->mot_de_passe);
+                echo json_encode($result);
             }
         }
 

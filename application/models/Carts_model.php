@@ -38,7 +38,7 @@ class Carts_model extends CI_Model {
         $this->db->select('sum(quantite) as quantity, sum(prix_ht_produit * quantite) as all_price, sum(prix_ht_produit) as price, produit.description_court_produit, produit.description_long_produit, produit.prix_ht_produit, produit.tva_produit, panier.id_produit, panier.id')
                 ->from('produit')
                 ->join('sous_rubrique', 'produit.id_sous_rubrique = sous_rubrique.id_sous_rubrique')
-                ->join('rubrique', 'sous_rubrique.id_sous_rubrique = rubrique.id_rubrique')
+                ->join('rubrique', 'sous_rubrique.id_rubrique = rubrique.id_rubrique')
                 ->join('fournisseur', 'produit.id_fournisseur = fournisseur.id_fournisseur')
                 ->join('panier', 'produit.id_produit = panier.id_produit')
                 ->join('client', 'panier.id_client = client.id_client')

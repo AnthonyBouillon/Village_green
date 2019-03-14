@@ -1,15 +1,27 @@
 $(document).ready(function () {
- function delete_by_product(e) {
+    function delete_by_product(e) {
         var form_delete_cart = $(this);
         // Destination des données, les données, fonction =>
         $.post('http://localhost/village_green/carts/delete_cart', form_delete_cart.serialize(), function () {
-    
             // Actualise le panier
-          $('.card-body').load('http://localhost/village_green/carts/cart .card-body');
+            $('.card-body').load('http://localhost/village_green/carts/cart .card-body', function(){
+                  $('.delete_cart').submit(delete_by_product);
+            });
         });
         e.preventDefault();
     }
     $('.delete_cart').submit(delete_by_product);
+    
+  /*  function sign_in(e) {
+        var form_delete_cart = $(this);
+        // Destination des données, les données, fonction =>
+        $.post('http://localhost/village_green/users/login', form_delete_cart.serialize(), function (data) {
+           
+          console.log(data.);
+        });
+        e.preventDefault();
+    }
+    $('.form_login').submit(sign_in);*/
     /**
      * Vérification du formulaire d'inscription
      * taille
@@ -46,7 +58,7 @@ $(document).ready(function () {
                 $('#name').css('border-color', 'green');
             }
         }
-        
+
         // Teste la longueur => bordure + message en rouge
         if (firstname !== null) {
 
@@ -63,7 +75,7 @@ $(document).ready(function () {
                 $('#firstname').css('border-color', 'green');
             }
         }
-        
+
         // Teste le format
         // Teste la longueur => bordure + message en rouge
         if (phone !== null) {
@@ -132,7 +144,7 @@ $(document).ready(function () {
                 $('#address').css('border-color', 'green');
             }
         }
-        
+
         // Teste si les deux mots de passe coincident
         if (password !== null && confirm_password !== null) {
             if (password !== confirm_password) {
@@ -153,48 +165,50 @@ $(document).ready(function () {
     });
 
 
-  $( function() {
-    // run the currently selected effect
-    function runEffect() {
-      // get effect type from
-      var selectedEffect = "slide";
- 
-      // Most effect types need no options passed by default
-      var options = {};
-      // some effects have required parameters
-      if ( selectedEffect === "scale" ) {
-        options = { percent: 50 };
-      } else if ( selectedEffect === "size" ) {
-        options = { to: { width: 280, height: 185 } };
-      }
- 
-      // Run the effect
-      $( "#effect" ).show( selectedEffect, options, 500, callback );
-    };
- 
-    //callback function to bring a hidden box back
-    function callback() {
-      setTimeout(function() {
-        $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
-      }, 1000 );
-    };
- 
-    // Set effect from select menu value
-    $( ".btn_delete_cart" ).on( "click", function() {
-      runEffect();
-    });
- 
-    $( "#effect" ).hide();
-  } );
+    $(function () {
+        // run the currently selected effect
+        function runEffect() {
+            // get effect type from
+            var selectedEffect = "slide";
 
-if($(window).width() < '750'){
-    $("nav").addClass("fixed-top");
-}
-   $('#form_paypal').hide();
-   $('#btn_command').click(function(){
-       $('#form_paypal').show();
-       $('#form_command').hide();
-   });
+            // Most effect types need no options passed by default
+            var options = {};
+            // some effects have required parameters
+            if (selectedEffect === "scale") {
+                options = {percent: 50};
+            } else if (selectedEffect === "size") {
+                options = {to: {width: 280, height: 185}};
+            }
+
+            // Run the effect
+            $("#effect").show(selectedEffect, options, 500, callback);
+        }
+        ;
+
+        //callback function to bring a hidden box back
+        function callback() {
+            setTimeout(function () {
+                $("#effect:visible").removeAttr("style").fadeOut();
+            }, 1000);
+        }
+        ;
+
+        // Set effect from select menu value
+        $(".btn_delete_cart").on("click", function () {
+            runEffect();
+        });
+
+        $("#effect").hide();
+    });
+
+    if ($(window).width() < '750') {
+        $("nav").addClass("fixed-top");
+    }
+    $('#form_paypal').hide();
+    $('#btn_command').click(function () {
+        $('#form_paypal').show();
+        $('#form_command').hide();
+    });
 
 });
 

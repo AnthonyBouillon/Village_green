@@ -1,6 +1,26 @@
 /* 
     Evite que la navbar qui est fixé en haut (position absolute) camoufle d'autres élements
 */
+.btn-secondary, .btn-primary{
+    background-color: #00023C!important;
+}
+
+.modal-body{
+   
+    background-color: #FBF8F3!important;
+}
+.modal-body h6{
+   
+    font-weight: lighter;
+}
+.modal-footer, .modal-header{
+    background-color: #F7F9F6;
+}
+ .modal-header h5{
+
+    font-weight: bold;
+}
+
 
 .container {
     margin-top: 3%;
